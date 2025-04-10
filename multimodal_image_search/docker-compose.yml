@@ -1,0 +1,13 @@
+version: '3'
+services:
+  app:
+    build: .
+    ports:
+      - "8501:8501"
+    volumes:
+      - ~/.cache/torch:/root/.cache/torch
+      - ~/.cache/huggingface:/root/.cache/huggingface
+      - ./chromadb:/app/chromadb
+    environment:
+      - TORCH_HOME=/root/.cache/torch
+      - TRANSFORMERS_CACHE=/root/.cache/huggingface 
